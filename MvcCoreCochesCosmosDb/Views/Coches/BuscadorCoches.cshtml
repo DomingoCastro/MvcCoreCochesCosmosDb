@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MvcCoreCochesCosmosDb.Models.Vehiculo>
+
+@{
+    ViewData["Title"] = "BuscadorCoches";
+}
+
+<h1>BuscadorCoches</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form method="post">
+    <label>Introduzca marca:</label>
+    <input type="text" name="marca" class="form-control" required/>
+    <button class="btn btn-info">
+        Buscar
+    </button>
+</form>
+
+@if (Model != null)
+{
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Marca)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Modelo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VelocidadMaxima)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Marca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Modelo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imagen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VelocidadMaxima)
+                    </td>
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+}
+
